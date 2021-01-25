@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using CefSharp.Wpf;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -23,57 +25,29 @@ namespace TarkovToolBox.Views
     /// </summary>
     public partial class MapView : BaseView
     {
-        ObservableCollection<Button> MapButtonCollection { get; set; }
-
         public MapView()
         {
             InitializeComponent();
-            BuildMapButtons();
-            InitMap();
         }
 
-        private void InitMap()
+        ChromiumWebBrowser MarketBrowser { get; set; }
+
+        private void InitMarketBrowser(string url)
         {
-            var imageBrush = Resources["0"];
-            ImageSource imageSource = ((ImageBrush)imageBrush).ImageSource;
-            MapImageControl.Source = imageSource;
+            MarketBrowser = new ChromiumWebBrowser(url);
+            Window visual = Application.Current.Windows[Application.Current.Windows.Count - 1];
+            HwndSource parentWindowHwndSource = (HwndSource)HwndSource.FromVisual(visual);
+            MarketBrowser.CreateBrowser(parentWindowHwndSource, new Size(100, 100));
+            MarketBrowser.Name = $"browser_Market";
+
+
+            BrowserContainerBorder.Child = MarketBrowser;
         }
 
-
-        private void BuildMapButtons()
+        private void BaseView_Loaded(object sender, RoutedEventArgs e)
         {
-            MapButtonCollection = new ObservableCollection<Button>() {
-                GetMapButton("CUSTOMS", 0),
-                GetMapButton("FACTORY", 1),
-                GetMapButton("INTERCHANGE", 2),
-                GetMapButton("WOODS", 3),
-                GetMapButton("RESERVE", 4),
-                GetMapButton("SHORELINE", 5),
-                GetMapButton("THE LAB", 6)
-            };
-            MapButtonStackPanel.Children.AddCollection(MapButtonCollection);
+            if (MarketBrowser == null)
+                InitMarketBrowser("https://eftmkg.com/");
         }
-
-        private Button GetMapButton(string text, int id)
-        {
-            var button = new Button()
-            {
-                Content = text,
-                Margin = new Thickness(5, 0, 5, 0),
-                Tag = id,
-                FontSize = 26,
-                MinHeight = 75,
-                FontFamily = new FontFamily("Consolas")
-            };
-            button.Click += MapSelectionChanged;
-            return button;
-        }
-
-
-        private void MapSelectionChanged(object sender, RoutedEventArgs e)
-        {
-            MapImageControl.Source = ((ImageBrush)Resources[(e.Source as Button).Tag.ToString()]).ImageSource;
-        }
-
     }
 }

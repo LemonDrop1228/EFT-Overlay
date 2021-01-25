@@ -6,35 +6,13 @@
              xmlns:local="clr-namespace:TarkovToolBox.Views" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:viewportcontrol="clr-namespace:Han.Wpf.ViewportControl;assembly=Han.Wpf.ViewportControl"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="BaseView_Loaded">
 
     <Border Padding="10">
         <materialDesign:Card UniformCornerRadius="6" Background="#591F1F1F" Padding="10">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.175*"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <StackPanel x:Name="MapButtonStackPanel" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Border x:Name="BrowserContainerBorder">
 
-                </StackPanel>
-                <materialDesign:Card Grid.Row="1" Background="#720F0F0F" Padding="3">
-                    <viewportcontrol:Viewport MinZoom="1" MaxZoom="50" ZoomSpeed="1.1">
-                        <Image x:Name="MapImageControl" />
-                    </viewportcontrol:Viewport>
-                </materialDesign:Card>
-            </Grid>
+            </Border>
         </materialDesign:Card>
     </Border>
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <ImageBrush x:Key="0" ImageSource="/TarkovToolBox;component/Resources/CustomsCalloutsAndSpawns.png"  />
-            <ImageBrush x:Key="1" ImageSource="/TarkovToolBox;component/Resources/Factory3DJohnnyTushonka.jpg" />
-            <ImageBrush x:Key="2" ImageSource="/TarkovToolBox;component/Resources/InterchangeMap.png" />
-            <ImageBrush x:Key="3" ImageSource="/TarkovToolBox;component/Resources/WoodsMapV4.png" />
-            <ImageBrush x:Key="4" ImageSource="/TarkovToolBox;component/Resources/ReserveMap.png" />
-            <ImageBrush x:Key="5" ImageSource="/TarkovToolBox;component/Resources/ShorelineMap.png" />
-            <ImageBrush x:Key="6" ImageSource="/TarkovToolBox;component/Resources/TheLabMap.png" />
-        </ResourceDictionary>
-    </UserControl.Resources>
 </local:BaseView>
