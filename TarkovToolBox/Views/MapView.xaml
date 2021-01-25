@@ -16,66 +16,25 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <StackPanel x:Name="MapButtonStackPanel" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                    
+
                 </StackPanel>
-                <TabControl x:Name="MapTabControl" Grid.Row="1" Background="{x:Null}" BorderBrush="{x:Null}">
-                    <TabControl.ItemContainerStyle>
-                        <Style TargetType="TabItem">
-                            <Setter Property="Visibility" Value="Collapsed" />
-                            <Setter Property="BorderThickness" Value="0"/>
-                        </Style>
-                    </TabControl.ItemContainerStyle>
-                    <TabItem Background="{x:Null}">
-                        <materialDesign:Card Background="#720F0F0F" Padding="3">
-                            <viewportcontrol:Viewport MinZoom="1" MaxZoom="50" ZoomSpeed="1.1">
-                                <Image Source="/TarkovToolBox;component/Resources/CustomsCalloutsAndSpawns.png"/>
-                            </viewportcontrol:Viewport>
-                        </materialDesign:Card>
-                    </TabItem>
-                    <TabItem Background="{x:Null}">
-                        <materialDesign:Card Background="#720F0F0F" Padding="3">
-                            <viewportcontrol:Viewport MinZoom="1" MaxZoom="50" ZoomSpeed="1.1">
-                                <Image Source="/TarkovToolBox;component/Resources/Factory3DJohnnyTushonka.jpg"/>
-                            </viewportcontrol:Viewport>
-                        </materialDesign:Card>
-                    </TabItem>
-                    <TabItem Background="{x:Null}">
-                        <materialDesign:Card Background="#720F0F0F" Padding="3">
-                            <viewportcontrol:Viewport MinZoom="1" MaxZoom="50" ZoomSpeed="1.1">
-                                <Image Source="/TarkovToolBox;component/Resources/InterchangeMap.png"/>
-                            </viewportcontrol:Viewport>
-                        </materialDesign:Card>
-                    </TabItem>
-                    <TabItem Background="{x:Null}">
-                        <materialDesign:Card Background="#720F0F0F" Padding="3">
-                            <viewportcontrol:Viewport MinZoom="1" MaxZoom="50" ZoomSpeed="1.1">
-                                <Image Source="/TarkovToolBox;component/Resources/WoodsMapV4.png"/>
-                            </viewportcontrol:Viewport>
-                        </materialDesign:Card>
-                    </TabItem>
-                    <TabItem Background="{x:Null}">
-                        <materialDesign:Card Background="#720F0F0F" Padding="3">
-                            <viewportcontrol:Viewport MinZoom="1" MaxZoom="50" ZoomSpeed="1.1">
-                                <Image Source="/TarkovToolBox;component/Resources/ReserveMap.png"/>
-                            </viewportcontrol:Viewport>
-                        </materialDesign:Card>
-                    </TabItem>
-                    <TabItem Background="{x:Null}">
-                        <materialDesign:Card Background="#720F0F0F" Padding="3">
-                            <viewportcontrol:Viewport MinZoom="1" MaxZoom="50" ZoomSpeed="1.1">
-                                <Image Source="/TarkovToolBox;component/Resources/ShorelineMap.png"/>
-                            </viewportcontrol:Viewport>
-                        </materialDesign:Card>
-                    </TabItem>
-                    <TabItem Background="{x:Null}">
-                        <materialDesign:Card Background="#720F0F0F" Padding="3">
-                            <viewportcontrol:Viewport MinZoom="1" MaxZoom="50" ZoomSpeed="1.1">
-                                <Image Source="/TarkovToolBox;component/Resources/TheLabMap.png"/>
-                            </viewportcontrol:Viewport>
-                        </materialDesign:Card>
-                    </TabItem>
-                </TabControl>
-            </Grid>            
+                <materialDesign:Card Grid.Row="1" Background="#720F0F0F" Padding="3">
+                    <viewportcontrol:Viewport MinZoom="1" MaxZoom="50" ZoomSpeed="1.1">
+                        <Image x:Name="MapImageControl" />
+                    </viewportcontrol:Viewport>
+                </materialDesign:Card>
+            </Grid>
         </materialDesign:Card>
     </Border>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ImageBrush x:Key="0" ImageSource="/TarkovToolBox;component/Resources/CustomsCalloutsAndSpawns.png"  />
+            <ImageBrush x:Key="1" ImageSource="/TarkovToolBox;component/Resources/Factory3DJohnnyTushonka.jpg" />
+            <ImageBrush x:Key="2" ImageSource="/TarkovToolBox;component/Resources/InterchangeMap.png" />
+            <ImageBrush x:Key="3" ImageSource="/TarkovToolBox;component/Resources/WoodsMapV4.png" />
+            <ImageBrush x:Key="4" ImageSource="/TarkovToolBox;component/Resources/ReserveMap.png" />
+            <ImageBrush x:Key="5" ImageSource="/TarkovToolBox;component/Resources/ShorelineMap.png" />
+            <ImageBrush x:Key="6" ImageSource="/TarkovToolBox;component/Resources/TheLabMap.png" />
+        </ResourceDictionary>
+    </UserControl.Resources>
 </local:BaseView>

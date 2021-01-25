@@ -29,7 +29,16 @@ namespace TarkovToolBox.Views
         {
             InitializeComponent();
             BuildMapButtons();
+            InitMap();
         }
+
+        private void InitMap()
+        {
+            var imageBrush = Resources["0"];
+            ImageSource imageSource = ((ImageBrush)imageBrush).ImageSource;
+            MapImageControl.Source = imageSource;
+        }
+
 
         private void BuildMapButtons()
         {
@@ -47,7 +56,8 @@ namespace TarkovToolBox.Views
 
         private Button GetMapButton(string text, int id)
         {
-            var button = new Button() {
+            var button = new Button()
+            {
                 Content = text,
                 Margin = new Thickness(5, 0, 5, 0),
                 Tag = id,
@@ -62,7 +72,8 @@ namespace TarkovToolBox.Views
 
         private void MapSelectionChanged(object sender, RoutedEventArgs e)
         {
-            MapTabControl.SelectedIndex = (int)(e.Source as Button).Tag;
+            MapImageControl.Source = ((ImageBrush)Resources[(e.Source as Button).Tag.ToString()]).ImageSource;
         }
+
     }
 }
