@@ -204,9 +204,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Factory3DJohnnyTushonka.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\separator_001.png" />
     <Resource Include="Resources\separator_002.png" />
     <Resource Include="Resources\TT_Title.png" />
@@ -221,24 +218,6 @@
     <Resource Include="Resources\PeltorComTac2Headset_cleaned.png" />
     <Resource Include="Resources\Roubles_cleaned.png" />
     <Resource Include="Resources\SecureFlashdrive_cleaned.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\CustomsCalloutsAndSpawns.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\InterchangeMap.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\WoodsMapV4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\ReserveMap.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\ShorelineMap.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\TheLabMap.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
